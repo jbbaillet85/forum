@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h3 class="mb-3">Ajouter <strong>forum</strong></h3>
+    <div class="row">
+      <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="forum" value="forum">
+        <input type="hidden" name="user_id" value="{{ request.user.id }}">
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+  {% endblock %}
